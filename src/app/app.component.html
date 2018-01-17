@@ -1,0 +1,48 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+</div>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="First Name">
+  </mat-form-field><br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Last Name">
+  </mat-form-field><br>
+  <mat-radio-group>
+    <mat-radio-button value="1">Option 1</mat-radio-button>
+    <mat-radio-button value="2">Option 2</mat-radio-button>
+  </mat-radio-group><br><br>
+  <mat-checkbox>Check me!</mat-checkbox>
+  <br>
+  <button mat-button>Click me!</button>
+</form>
+<span class="span-block">
+  Hello To All
+</span>
+<h1>
+  
+  subject Name :{{getSubject()}}
+
+  lara courses :{{arr}}
+
+  <img src="{{imgpath}}"/>
+
+  customer is {{customer|json}}
+
+  customer is {{customer1|json}}
+</h1>
+
+<input type="text" #insitute />
+<button (click)="onClick(insitute.value)">click me!</button>
+
+
+<img [src]="imgpath"/>
+<img src="{{imgpath}}"/>
+<img src="assets/images/1.jpg"/>
+<subject-comp></subject-comp>
+<app-course-component></app-course-component>
+<app-card></app-card>
+<app-button></app-button>
