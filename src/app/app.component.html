@@ -1,48 +1,97 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{title}}!
+    Welcome to {{subject}}!
   </h1>
-</div>
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="First Name">
-  </mat-form-field><br>
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Last Name">
-  </mat-form-field><br>
-  <mat-radio-group>
-    <mat-radio-button value="1">Option 1</mat-radio-button>
-    <mat-radio-button value="2">Option 2</mat-radio-button>
-  </mat-radio-group><br><br>
-  <mat-checkbox>Check me!</mat-checkbox>
-  <br>
-  <button mat-button>Click me!</button>
-</form>
-<span class="span-block">
-  Hello To All
-</span>
-<h1>
+
+  <h1 [innerHTML]="subject"></h1>
+
+  <input #institute (keypress)="onClick(institute.value)" />
   
-  subject Name :{{getSubject()}}
+  <button (click)="onClick(institute.value)"> Click Me !</button>
 
-  lara courses :{{arr}}
-
-  <img src="{{imgpath}}"/>
-
-  customer is {{customer|json}}
-
-  customer is {{customer1|json}}
-</h1>
-
-<input type="text" #insitute />
-<button (click)="onClick(insitute.value)">click me!</button>
+  <h1>Institue is {{institute}} </h1>
+  <h1>Institue is {{institute1}} </h1>
 
 
-<img [src]="imgpath"/>
-<img src="{{imgpath}}"/>
-<img src="assets/images/1.jpg"/>
-<subject-comp></subject-comp>
-<app-course-component></app-course-component>
-<app-card></app-card>
-<app-button></app-button>
+  <input [(ngModel)] = "tempKey" />
+
+  <h1>Temp Key is {{tempKey}}</h1>
+
+  <h1>
+    2 + 3 = {{ 2 + 3 }}
+  </h1>
+
+  <h1>
+    5 - 3 = {{ 5 - 3 }}
+  </h1>
+
+  <h1>
+    Subject Name : {{ getSubject() }}
+  </h1>
+
+  <h1>
+    Subjects in Lara : {{ subjects  }}
+  </h1>
+
+  <h1>
+    Customer is {{ customer | json}}
+  </h1>
+  <h1>
+    Customer is name = {{ customer.name}}
+  </h1>
+
+  <h1>
+    customer 1 is {{ customer1 | json}}<hr/>
+  </h1>
+
+  <h1>
+    Customers : {{ customers | json}}
+  </h1>
+<hr/>
+  <h1>
+    Customers : {{ isJavaLearningCenter ? 'Java Learning Center' : 'Not Defined'}}
+  </h1>
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+  
+  <div style="text-align:center">
+    
+      <input #fruit> <button (click)="addFruit(fruit.value)"> Add Fruit</button> 
+    
+      <h1 *ngFor="let fruit of fruits; let o = odd; let e = even; let i = index; let f = first; let l = last;">
+    
+        First : {{f}} Last : {{l}} {{fruit}} Odd : {{o}} Even : {{e}}  <button (click)="removeFruit(i)">x</button>
+    
+      </h1>
+    
+      <ng-template ngFor let-fruit="$implicit" [ngForOf]="fruits" >
+        Property binding <h3>{{fruit}}</h3>
+      </ng-template>
+    
+      <ng-template *ngFor="let fruit of fruits">
+          Normal {{fruit}}
+      </ng-template>
+
+      <!-- <ul>
+        <li *ngFor="let fruit of fruits">
+          Normal <h4>{{fruit}}</h4>
+        </li>
+      </ul> -->
+
+      <ng-template [ngIf]="fruits">
+        Fruits are available
+      </ng-template>
+    
+    </div>
+
+
+  <img src="{{imgPath}}"/>
+
+  <img [src]="imgPath" />
+  
+  <img src="{{imgPath}}"/>
+
+  <img src="assets/images/1.png" />
+  
+</div>

@@ -6,7 +6,6 @@ import { ButtonComponent } from './button.component';
   imports: [
     CommonModule
   ],
-  declarations: [ButtonComponent],
-  exports :[ButtonComponent]
+  declarations: [ButtonComponent]
 })
 export class ButtonModule { }

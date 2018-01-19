@@ -1,33 +1,92 @@
-import { CustomerModel } from './customer.modal';
 import { Component, ViewEncapsulation } from '@angular/core';
+import { CustomerModel } from './customer.model';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'] 
+  styleUrls: ['./app.component.css'],
+  encapsulation: ViewEncapsulation.Native
 })
 export class AppComponent {
-  title = 'MeanStack Classes';
 
-  imgpath:string="assets/images/1.jpg";
+  subject: string = "Mean Stack"
+  imgPath: string = "assets/images/1.png"
 
-  arr:any=["java","J2EE","Angular"];
+  subjects: string[] = [ 'Java', 'J2EE', 'Angular'];
 
-  customer:{}={
-    name:'abc',address:'xyz',age:20
+  isJavaLearningCenter: boolean = true;
+
+  customer: {} = {
+    name: 'Abc',
+    address: 'xyz',
+    age: '30'
   }
 
-  customer1:CustomerModel = new CustomerModel();
+  customer1 : CustomerModel = new CustomerModel();
 
-  constructor()
-  {
-    this.customer1.name="sachin";
-    this.customer1.address="BTM";
-    this.customer1.age=22;
+  customers : CustomerModel[] = [];
+
+  institute1: string = undefined;
+
+  constructor(){
+    this.customer1.name = "Customer 1"
+    this.customer1.address = "Customer 1 Address"
+    this.customer1.age = 28
+
+    let customer2 : CustomerModel = new CustomerModel();
+    let customer3 : CustomerModel = new CustomerModel();
+    let customer4 : CustomerModel = new CustomerModel();
+    let customer5 : CustomerModel = new CustomerModel();
     
+    customer2.name = "Customer 2"
+    customer2.address = "Customer 2 Address"
+    customer2.age = 28
+
+    customer3.name = "Customer 3"
+    customer3.address = "Customer 3 Address"
+    customer3.age = 28
+
+    customer4.name = "Customer 4"
+    customer4.address = "Customer 4 Address"
+    customer4.age = 28
+
+    let customerses :CustomerModel=this.customer1;
+
+    this.customers.push(this.customer1)
+    //this.customers.push(customerses)
+    this.customers.push(customer2)
+    this.customers.push(customer3)
+    this.customers.push(customer4)
+   // this.customers.push(customer5)
+
   }
 
-  getSubject():string{
-    return this.title;
+  getSubject() : string{
+    //console.log("Get Subject Called !")
+
+    return this.subject;
+  } 
+
+  onClick(institute){
+    console.log("on click called !")
+    console.log(institute)
+
+    this.institute1 = institute;
+
+    console.log("new institue value "+ this.institute1)
   }
+// ----------------------------------------------
+  fruits: string[] = ['Apple', 'Litch', 'Watermelon']
+  
+    addFruit(fruit)
+    {
+      this.fruits.push(fruit)
+    }
+  
+    removeFruit(index)
+    {
+        console.log(index)
+        this.fruits.splice(index, 1)
+    }
 }
